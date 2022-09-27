@@ -1,0 +1,10 @@
+{
+    "peacock.remoteColor": "#215732",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBorder": "#422c74"
+    },
+    "conventionalCommits.scopes": [
+        "devcontainer.json",
+        "settings.json"
+    ]
+}

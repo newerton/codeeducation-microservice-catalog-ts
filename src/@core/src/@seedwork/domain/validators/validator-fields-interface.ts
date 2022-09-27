@@ -7,5 +7,3 @@ export interface ValidatorFieldsInterface<PropsValidated> {
   validatedData: PropsValidated;
   validate(data: any): boolean;
 }
-
-export default ValidatorFieldsInterface;

@@ -1,13 +1,14 @@
-import { CategoryRepository } from "../../domain/repository/category.repository";
-import { CategoryOutput, CategoryOutputMapper } from "../dto/category-output";
-import {default as DefaultUseCase} from "../../../@seedwork/application/use-case";
-import { SearchInputDto } from "../../../@seedwork/application/dto/search-input";
+import { CategoryRepository } from '#category/domain';
 import {
   PaginationOutputDto,
   PaginationOutputMapper,
-} from "../../../@seedwork/application/dto/pagination-output";
+  SearchInputDto,
+} from '#seedwork/application';
+import { default as DefaultUseCase } from '#seedwork/application/use-case';
 
-export namespace ListCategoriesUseCase{
+import { CategoryOutput, CategoryOutputMapper } from '../dto';
+
+export namespace ListCategoriesUseCase {
   export class UseCase implements DefaultUseCase<Input, Output> {
     constructor(private categoryRepo: CategoryRepository.Repository) {}
     //
@@ -16,7 +17,7 @@ export namespace ListCategoriesUseCase{
       const searchResult = await this.categoryRepo.search(params);
       return this.toOutput(searchResult);
     }
-  
+
     private toOutput(searchResult: CategoryRepository.SearchResult): Output {
       const items = searchResult.items.map((i) => {
         return CategoryOutputMapper.toOutput(i);
@@ -28,14 +29,4 @@ export namespace ListCategoriesUseCase{
   export type Input = SearchInputDto;
 
   export type Output = PaginationOutputDto<CategoryOutput>;
-  
 }
-
-export default ListCategoriesUseCase;
-
-//request e response http
-//dados - Category - dados de saida
-
-//UseCase -> domain
-
-//infra -> domain

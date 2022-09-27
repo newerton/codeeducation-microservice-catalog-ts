@@ -1,4 +1,4 @@
-import { SearchResult } from "../../domain/repository/repository-contracts";
+import { SearchResult } from '#seedwork/domain';
 
 export type PaginationOutputDto<Item = any> = {
   items: Item[];
@@ -11,10 +11,10 @@ export type PaginationOutputDto<Item = any> = {
 export class PaginationOutputMapper {
   static toOutput<Item = any>(
     items: Item[],
-    result: SearchResult
+    result: SearchResult,
   ): PaginationOutputDto<Item> {
     return {
-      items, 
+      items,
       total: result.total,
       current_page: result.current_page,
       last_page: result.last_page,

@@ -1,4 +1,4 @@
-import { deepFreeze } from "../utils/object";
+import { deepFreeze } from '../utils/object';
 
 export abstract class ValueObject<Value = any> {
   protected readonly _value: Value;
@@ -12,15 +12,15 @@ export abstract class ValueObject<Value = any> {
   }
 
   toString = () => {
-    if (typeof this.value !== "object" || this.value === null) {
+    if (typeof this.value !== 'object' || this.value === null) {
       try {
         return this.value.toString();
       } catch (e) {
-        return this.value + "";
+        return this.value + '';
       }
     }
     const valueStr = this.value.toString();
-    return valueStr === "[object Object]"
+    return valueStr === '[object Object]'
       ? JSON.stringify(this.value)
       : valueStr;
   };

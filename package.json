@@ -3,24 +3,25 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "keywords": [],
+  "author": "Newerton Vargas de Araujo",
+  "license": "MIT",
   "workspaces": [
     "./src/@core",
     "./src/nestjs"
   ],
   "scripts": {
     "prestart:dev": "npm run build -w @fc/micro-videos",
-    "start:dev": "npm run build:w -w @fc/micro-videos & npm run start:dev -w nestjs",
-    "test": "jest"
+    "start:dev": "npm run start:dev -w nestjs",
+    "test": "jest",
+    "test:cov": "jest --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/newerton/codeeducation-microservice-catalog-ts.git"
+    "url": "git+https://github.com/codeedu/micro-admin-videos-typescript.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/newerton/codeeducation-microservice-catalog-ts/issues"
+    "url": "https://github.com/codeedu/micro-admin-videos-typescript/issues"
   },
-  "homepage": "https://github.com/newerton/codeeducation-microservice-catalog-ts#readme"
+  "homepage": "https://github.com/codeedu/micro-admin-videos-typescript#readme"
 }

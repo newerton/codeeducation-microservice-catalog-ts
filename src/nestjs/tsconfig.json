@@ -3,7 +3,17 @@
   "compilerOptions": {
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@categories/*": [
+        "./app/categories/*"
+      ],
+      "@common/*": [
+        "./common/*"
+      ]
+    },
   },
-  "include": ["./src"]
+  "include": [
+    "./src"
+  ]
 }

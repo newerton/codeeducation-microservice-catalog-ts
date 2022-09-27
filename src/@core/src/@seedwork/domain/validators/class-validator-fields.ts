@@ -1,7 +1,9 @@
-import { validateSync } from "class-validator";
-import ValidatorFieldsInterface, {
+import { validateSync } from 'class-validator';
+
+import {
   FieldsErrors,
-} from "./validator-fields-interface";
+  ValidatorFieldsInterface,
+} from './validator-fields-interface';
 
 export abstract class ClassValidatorFields<PropsValidated>
   implements ValidatorFieldsInterface<PropsValidated>
@@ -23,5 +25,3 @@ export abstract class ClassValidatorFields<PropsValidated>
     return !errors.length;
   }
 }
-
-export default ClassValidatorFields;

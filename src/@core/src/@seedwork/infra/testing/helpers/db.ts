@@ -1,9 +1,11 @@
-import { Sequelize, SequelizeOptions } from "sequelize-typescript";
+import { Sequelize, SequelizeOptions } from 'sequelize-typescript';
+
+import { configTest } from '#seedwork/infra/config';
 
 const sequelizeOptions: SequelizeOptions = {
-  dialect: "sqlite",
-  host: ":memory:",
-  logging: false,
+  dialect: configTest.db.vendor,
+  host: configTest.db.host,
+  logging: configTest.db.logging,
 };
 
 export function setupSequelize(options: SequelizeOptions = {}) {
@@ -14,7 +16,7 @@ export function setupSequelize(options: SequelizeOptions = {}) {
       (_sequelize = new Sequelize({
         ...sequelizeOptions,
         ...options,
-      }))
+      })),
   );
 
   beforeEach(async () => {

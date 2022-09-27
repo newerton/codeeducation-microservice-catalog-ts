@@ -6,7 +6,7 @@
 export default {
   displayName: {
     name: '@core',
-    color: 'blue'
+    color: 'blue',
   },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -27,7 +27,7 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: '<rootDir>/../__coverage',
+  coverageDirectory: '../__coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -35,12 +35,12 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   //coverageReporters: [
-    //"json",
-    //"html"
+  //"json",
+  //"html"
   //   "json",
   //   "text",
   //   "lcov",
@@ -53,7 +53,7 @@ export default {
       statements: 80,
       branches: 80,
       functions: 80,
-      lines: 80
+      lines: 80,
     },
   },
 
@@ -127,7 +127,7 @@ export default {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: "src",
+  rootDir: 'src',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -141,7 +141,10 @@ export default {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-   setupFilesAfterEnv: ["./@seedwork/domain/tests/validations.ts"],
+  setupFilesAfterEnv: [
+    './@seedwork/domain/tests/validations.ts',
+    './@seedwork/domain/tests/jest.ts',
+  ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -170,7 +173,7 @@ export default {
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
-  testRegex: ".*\\..*spec\\.ts$",
+  testRegex: '.*\\..*spec\\.ts$',
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
