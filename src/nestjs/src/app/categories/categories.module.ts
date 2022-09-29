@@ -4,9 +4,8 @@ import { SequelizeModule } from '@nestjs/sequelize';
 
 import { CategoriesController } from './categories.controller';
 import { CategoriesService } from './categories.service';
-import { CATEGORY_PROVIDERS } from './category.providers';
+import { CATEGORY_PROVIDERS } from './providers/category.provider';
 
-//categoria, entidade 1 e entidade 2
 @Module({
   imports: [SequelizeModule.forFeature([CategorySequelize.CategoryModel])],
   controllers: [CategoriesController],

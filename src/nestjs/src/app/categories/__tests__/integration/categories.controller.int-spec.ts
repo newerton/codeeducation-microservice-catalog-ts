@@ -14,8 +14,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { CategoriesController } from '@categories/categories.controller';
 import { CategoriesModule } from '@categories/categories.module';
-import { CATEGORY_PROVIDERS } from '@categories/category.providers';
 import { CategoryCollectionPresenter } from '@categories/presenter/category.presenter';
+import { CATEGORY_PROVIDERS } from '@categories/providers/category.provider';
 import { ConfigModule } from '@common/config/config.module';
 import { DatabaseModule } from '@common/database/database.module';
 

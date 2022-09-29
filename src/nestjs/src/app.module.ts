@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 
 import { CategoriesModule } from '@categories/categories.module';
+import { ConfigModule } from '@common/config/config.module';
 import { DatabaseModule } from '@common/database/database.module';
 import { ShareModule } from '@common/share/share.module';
 

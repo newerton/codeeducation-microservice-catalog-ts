@@ -5,7 +5,7 @@
   "compilerOptions": {
     "assets": [
       {
-        "include": "envs/*",
+        "include": "common/envs/*",
         "watchAssets": true
       }
     ]

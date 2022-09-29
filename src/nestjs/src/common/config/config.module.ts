@@ -50,8 +50,14 @@ export class ConfigModule extends NestConfigModule {
     return super.forRoot({
       isGlobal: true,
       envFilePath: [
-        ...(Array.isArray(envFilePath) ? envFilePath : [envFilePath]),
-        join(__dirname, `../envs/.env.${process.env.NODE_ENV}`),
+        ...(envFilePath
+          ? Array.isArray(envFilePath)
+            ? envFilePath
+            : [envFilePath]
+          : ''),
+        process.env.NODE_ENV
+          ? join(__dirname, `../envs/.env.${process.env.NODE_ENV}`)
+          : '',
         join(__dirname, '../envs/.env'),
       ],
       validationSchema: Joi.object({

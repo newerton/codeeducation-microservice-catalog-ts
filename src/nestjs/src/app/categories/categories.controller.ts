@@ -26,10 +26,6 @@ import {
   CategoryPresenter,
 } from './presenter/category.presenter';
 
-//Unit tests
-
-// Inject - casos - mongoose, typeorm
-//unidade - request e response
 @Controller('categories')
 export class CategoriesController {
   @Inject(CreateCategoryUseCase.UseCase)

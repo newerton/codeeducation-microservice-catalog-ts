@@ -7,6 +7,7 @@ export default {
   rootDir: 'src',
   testRegex: '.*\\..*spec\\.ts$',
   transform: {
+    // '^.+\\.(t|j)s$': 'ts-jest',
     '^.+\\.(t|j)s$': '@swc/jest',
   },
   collectCoverageFrom: ['**/*.(t|j)s'],
@@ -14,14 +15,16 @@ export default {
   coverageDirectory: '../__coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '@fc/micro\\-videos/(.*)$':
+    '^@fc/micro\\-videos/(.*)$':
       '<rootDir>/../../../node_modules/@fc/micro-videos/dist/$1',
     //'#seedwork/domain': '<rootDir>/../../../node_modules/@fc/micro-videos/dist/@seedwork/domain/index.js',
-    '#seedwork/(.*)$':
+    '^#seedwork/(.*)$':
       '<rootDir>/../../../node_modules/@fc/micro-videos/dist/@seedwork/$1',
     //'#category/domain': '<rootDir>/../../../node_modules/@fc/micro-videos/dist/category/domain/index.js',
-    '#category/(.*)$':
+    '^#category/(.*)$':
       '<rootDir>/../../../node_modules/@fc/micro-videos/dist/category/$1',
+    '^@categories/(.*)$': '<rootDir>/app/categories/$1',
+    '^@common/(.*)$': '<rootDir>/common/$1',
   },
   setupFilesAfterEnv: ['../../@core/src/@seedwork/domain/tests/jest.ts'],
   coverageThreshold: {
