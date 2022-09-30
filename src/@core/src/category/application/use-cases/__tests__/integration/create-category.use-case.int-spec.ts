@@ -18,73 +18,28 @@ describe('CreateCategoryUseCase Integration Tests', () => {
     useCase = new CreateCategoryUseCase.UseCase(repository);
   });
 
-  describe('test with test.each', () => {
-    const arrange = [
-      {
-        input: { name: 'test' },
-        output: {
-          name: 'test',
-          description: null,
-          is_active: true,
-        },
-      },
-      {
-        input: {
-          name: 'test',
-          description: 'some description',
-          is_active: false,
-        },
-        output: {
-          name: 'test',
-          description: 'some description',
-          is_active: false,
-        },
-      },
-      {
-        input: {
-          name: 'test',
-          description: 'some description',
-          is_active: true,
-        },
-        output: {
-          name: 'test',
-          description: 'some description',
-          is_active: true,
-        },
-      },
-    ];
-
-    test.each(arrange)('validate %j', async (item) => {
-      const output = await useCase.execute(item.input);
-      const entity = await repository.findById(output.id);
-      expect(output.id).toBe(entity.id);
-      expect(output).toMatchObject(item.output);
-    });
-  });
   it('should create a category', async () => {
     let output = await useCase.execute({ name: 'test' });
     let entity = await repository.findById(output.id);
-
     expect(output).toStrictEqual({
       id: entity.id,
       name: 'test',
       description: null,
       is_active: true,
-      created_at: entity.created_at,
+      created_at: entity.props.created_at,
     });
 
     output = await useCase.execute({
       name: 'test',
       description: 'some description',
-      is_active: false,
     });
     entity = await repository.findById(output.id);
     expect(output).toStrictEqual({
       id: entity.id,
       name: 'test',
       description: 'some description',
-      is_active: false,
-      created_at: entity.created_at,
+      is_active: true,
+      created_at: entity.props.created_at,
     });
 
     output = await useCase.execute({
@@ -98,7 +53,21 @@ describe('CreateCategoryUseCase Integration Tests', () => {
       name: 'test',
       description: 'some description',
       is_active: true,
-      created_at: entity.created_at,
+      created_at: entity.props.created_at,
+    });
+
+    output = await useCase.execute({
+      name: 'test',
+      description: 'some description',
+      is_active: false,
+    });
+    entity = await repository.findById(output.id);
+    expect(output).toStrictEqual({
+      id: entity.id,
+      name: 'test',
+      description: 'some description',
+      is_active: false,
+      created_at: entity.props.created_at,
     });
   });
 });

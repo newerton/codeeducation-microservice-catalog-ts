@@ -4,7 +4,7 @@ import {
 } from '@fc/micro-videos/category/application';
 import { Transform } from 'class-transformer';
 
-import { CollectionPresenter } from '@common/share/presenters/collection.presenter';
+import { CollectionPresenter } from '@common/presenters/collection.presenter';
 
 export class CategoryPresenter {
   id: string;

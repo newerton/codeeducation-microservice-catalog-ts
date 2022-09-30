@@ -7,10 +7,10 @@ import { GetCategoryUseCase } from '../../get-category.use-case';
 const { CategoryRepository, CategoryModel } = CategorySequelize;
 
 describe('GetCategoryUseCase Integration Tests', () => {
-  setupSequelize({ models: [CategoryModel] });
-
   let useCase: GetCategoryUseCase.UseCase;
   let repository: CategorySequelize.CategoryRepository;
+
+  setupSequelize({ models: [CategoryModel] });
 
   beforeEach(() => {
     repository = new CategoryRepository(CategoryModel);
@@ -25,9 +25,7 @@ describe('GetCategoryUseCase Integration Tests', () => {
 
   it('should returns a category', async () => {
     const model = await CategoryModel.factory().create();
-    const output = await useCase.execute({
-      id: model.id,
-    });
+    const output = await useCase.execute({ id: model.id });
     expect(output).toStrictEqual({
       id: model.id,
       name: model.name,

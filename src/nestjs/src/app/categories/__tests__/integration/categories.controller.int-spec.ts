@@ -362,12 +362,3 @@ describe('CategoriesController Integration Tests', () => {
     });
   });
 });
-
-// Arquitetura em camadas
-
-// Portas de entrada ----
-// use cases
-// coração do software
-// infraestrutura
-
-//Test Data Builders - Build Design Pattern

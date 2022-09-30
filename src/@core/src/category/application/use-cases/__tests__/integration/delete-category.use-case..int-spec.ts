@@ -6,11 +6,11 @@ import { DeleteCategoryUseCase } from '../../delete-category.use-case';
 
 const { CategoryRepository, CategoryModel } = CategorySequelize;
 
-describe('DeleteCategoryUseCase Unit Tests', () => {
-  setupSequelize({ models: [CategoryModel] });
-
+describe('DeleteCategoryUseCase Integration Tests', () => {
   let useCase: DeleteCategoryUseCase.UseCase;
   let repository: CategorySequelize.CategoryRepository;
+
+  setupSequelize({ models: [CategoryModel] });
 
   beforeEach(() => {
     repository = new CategoryRepository(CategoryModel);

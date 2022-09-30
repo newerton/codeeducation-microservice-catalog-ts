@@ -1,6 +1,6 @@
 import { instanceToPlain } from 'class-transformer';
 
-import { PaginationPresenter } from '@common/share/presenters/pagination.presenter';
+import { PaginationPresenter } from '@common/presenters/pagination.presenter';
 
 import {
   CategoryCollectionPresenter,

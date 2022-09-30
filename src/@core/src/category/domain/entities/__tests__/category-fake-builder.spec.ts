@@ -2,11 +2,11 @@ import { Chance } from 'chance';
 
 import { UniqueEntityId } from '#seedwork/domain';
 
-import { CategoryFakeBuilder } from '../category-fake-builder';
+import { Category } from '..';
 
 describe('CategoryFakerBuilder Unit Tests', () => {
   describe('unique_entity_id prop', () => {
-    const faker = CategoryFakeBuilder.aCategory();
+    const faker = Category.fake().aCategory();
 
     it('should throw error when any with methods has called', () => {
       expect(() => faker['getValue']('unique_entity_id')).toThrow(
@@ -23,7 +23,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
     test('withUniqueEntityId', () => {
       const uniqueEntityId = new UniqueEntityId();
       const $this = faker.withUniqueEntityId(uniqueEntityId);
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_unique_entity_id']).toBe(uniqueEntityId);
 
       faker.withUniqueEntityId(() => uniqueEntityId);
@@ -39,7 +39,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
       expect(mockFactory).toHaveBeenCalledWith(0);
 
       mockFactory = jest.fn().mockReturnValue(new UniqueEntityId());
-      const fakerMany = CategoryFakeBuilder.theCategories(2);
+      const fakerMany = Category.fake().theCategories(2);
       fakerMany.withUniqueEntityId(mockFactory);
       fakerMany.build();
 
@@ -49,7 +49,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
   });
 
   describe('name prop', () => {
-    const faker = CategoryFakeBuilder.aCategory();
+    const faker = Category.fake().aCategory();
     it('should be a function', () => {
       expect(typeof faker['_name'] === 'function').toBeTruthy();
     });
@@ -65,7 +65,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
 
     test('withName', () => {
       const $this = faker.withName('test name');
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_name']).toBe('test name');
 
       faker.withName(() => 'test name');
@@ -80,7 +80,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
       const category = faker.build();
       expect(category.name).toBe(`test name 0`);
 
-      const fakerMany = CategoryFakeBuilder.theCategories(2);
+      const fakerMany = Category.fake().theCategories(2);
       fakerMany.withName((index) => `test name ${index}`);
       const categories = fakerMany.build();
 
@@ -90,7 +90,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
 
     test('invalid empty case', () => {
       const $this = faker.withInvalidNameEmpty(undefined);
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_name']).toBeUndefined();
 
       faker.withInvalidNameEmpty(null);
@@ -102,7 +102,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
 
     test('invalid too long case', () => {
       const $this = faker.withInvalidNameTooLong();
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_name'].length).toBe(256);
 
       const tooLong = 'a'.repeat(256);
@@ -113,7 +113,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
   });
 
   describe('description prop', () => {
-    const faker = CategoryFakeBuilder.aCategory();
+    const faker = Category.fake().aCategory();
     it('should be a function', () => {
       expect(typeof faker['_description'] === 'function').toBeTruthy();
     });
@@ -129,7 +129,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
 
     test('withDescription', () => {
       const $this = faker.withDescription('test description');
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_description']).toBe('test description');
 
       faker.withDescription(() => 'test description');
@@ -144,7 +144,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
       const category = faker.build();
       expect(category.description).toBe(`test description 0`);
 
-      const fakerMany = CategoryFakeBuilder.theCategories(2);
+      const fakerMany = Category.fake().theCategories(2);
       fakerMany.withDescription((index) => `test description ${index}`);
       const categories = fakerMany.build();
 
@@ -154,31 +154,31 @@ describe('CategoryFakerBuilder Unit Tests', () => {
   });
 
   describe('is_active prop', () => {
-    const faker = CategoryFakeBuilder.aCategory();
+    const faker = Category.fake().aCategory();
     it('should be a function', () => {
       expect(typeof faker['_is_active'] === 'function').toBeTruthy();
     });
 
     test('activate', () => {
       const $this = faker.activate();
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_is_active']).toBeTruthy();
       expect(faker.is_active).toBeTruthy();
     });
 
     test('deactivate', () => {
       const $this = faker.deactivate();
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_is_active']).toBeFalsy();
       expect(faker.is_active).toBeFalsy();
     });
   });
 
   describe('created_at prop', () => {
-    const faker = CategoryFakeBuilder.aCategory();
+    const faker = Category.fake().aCategory();
 
     it('should throw error when any with methods has called', () => {
-      const fakerCategory = CategoryFakeBuilder.aCategory();
+      const fakerCategory = Category.fake().aCategory();
       expect(() => fakerCategory.created_at).toThrow(
         new Error("Property created_at not have a factory, use 'with' methods"),
       );
@@ -191,7 +191,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
     test('withCreatedAt', () => {
       const date = new Date();
       const $this = faker.withCreatedAt(date);
-      expect($this).toBeInstanceOf(CategoryFakeBuilder);
+      expect($this).toBeInstanceOf(Category.fake());
       expect(faker['_created_at']).toBe(date);
 
       faker.withCreatedAt(() => date);
@@ -205,7 +205,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
       const category = faker.build();
       expect(category.created_at.getTime()).toBe(date.getTime() + 2);
 
-      const fakerMany = CategoryFakeBuilder.theCategories(2);
+      const fakerMany = Category.fake().theCategories(2);
       fakerMany.withCreatedAt((index) => new Date(date.getTime() + index + 2));
       const categories = fakerMany.build();
 
@@ -215,7 +215,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
   });
 
   it('should create a category', () => {
-    const faker = CategoryFakeBuilder.aCategory();
+    const faker = Category.fake().aCategory();
     let category = faker.build();
 
     expect(category.uniqueEntityId).toBeInstanceOf(UniqueEntityId);
@@ -242,7 +242,7 @@ describe('CategoryFakerBuilder Unit Tests', () => {
   });
 
   it('should create many categories', () => {
-    const faker = CategoryFakeBuilder.theCategories(2);
+    const faker = Category.fake().theCategories(2);
     let categories = faker.build();
 
     categories.forEach((category) => {

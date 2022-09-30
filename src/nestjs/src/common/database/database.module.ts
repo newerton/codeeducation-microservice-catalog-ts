@@ -9,7 +9,6 @@ import { CONFIG_SCHEMA_TYPE } from '@common/config/config.module';
     SequelizeModule.forRootAsync({
       useFactory: async (config: ConfigService<CONFIG_SCHEMA_TYPE>) => {
         const models = [CategorySequelize.CategoryModel];
-        console.log(config.get('DB_VENDOR'));
         if (config.get('DB_VENDOR') === 'sqlite') {
           return {
             dialect: 'sqlite',

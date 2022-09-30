@@ -139,6 +139,3 @@ describe('CategoriesController Unit Tests', () => {
     expect(presenter).toEqual(new CategoryCollectionPresenter(output));
   });
 });
-
-//repository in memory
-//casos de uso - mock
