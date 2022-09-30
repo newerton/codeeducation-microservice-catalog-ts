@@ -28,6 +28,10 @@ describe('ValueObject Unit Tests', () => {
         received: { prop1: 'value1' },
         expected: JSON.stringify({ prop1: 'value1' }),
       },
+      {
+        received: null,
+        expected: 'null',
+      },
     ];
 
     test.each(arrange)('validate %j', (item) => {

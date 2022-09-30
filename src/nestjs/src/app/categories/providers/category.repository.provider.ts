@@ -4,12 +4,12 @@ import {
 } from '@fc/micro-videos/category/infra';
 import { getModelToken } from '@nestjs/sequelize';
 
-export const CATEGORY_IN_MEMORY_REPOSITORY = {
+const CATEGORY_IN_MEMORY_REPOSITORY = {
   provide: 'CategoryInMemoryRepository',
   useClass: CategoryInMemoryRepository,
 };
 
-export const CATEGORY_SEQUELIZE_REPOSITORY = {
+const CATEGORY_SEQUELIZE_REPOSITORY = {
   provide: 'CategorySequelizeRepository',
   useFactory: (categoryModel: typeof CategorySequelize.CategoryModel) => {
     return new CategorySequelize.CategoryRepository(categoryModel);
@@ -17,7 +17,7 @@ export const CATEGORY_SEQUELIZE_REPOSITORY = {
   inject: [getModelToken(CategorySequelize.CategoryModel)],
 };
 
-export const CATEGORY_REPOSITORY = {
+const CATEGORY_REPOSITORY = {
   provide: 'CategoryRepository',
   useExisting: 'CategorySequelizeRepository',
 };

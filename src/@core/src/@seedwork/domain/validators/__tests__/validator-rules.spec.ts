@@ -1,6 +1,6 @@
 import { ValidationError } from '#seedwork/domain/errors';
 
-import { ValidatorRules } from '../validator-rules';
+import { ValidatorRules, isEmpty } from '../validator-rules';
 
 type Values = {
   value: any;
@@ -220,5 +220,22 @@ describe('ValidatorRules Unit Tests', () => {
 
     ValidatorRules.values(true, 'field').required().boolean();
     ValidatorRules.values(false, 'field').required().boolean();
+  });
+
+  it('should valid when combine two or more validation rules', () => {
+    const value_undefined = isEmpty(undefined);
+    expect(value_undefined).toBeTruthy();
+
+    const value_null = isEmpty(null);
+    expect(value_null).toBeTruthy();
+
+    const value_empty = isEmpty('');
+    expect(value_empty).toBeFalsy();
+
+    const value_string = isEmpty('abc');
+    expect(value_string).toBeFalsy();
+
+    const value_number = isEmpty(123);
+    expect(value_number).toBeFalsy();
   });
 });

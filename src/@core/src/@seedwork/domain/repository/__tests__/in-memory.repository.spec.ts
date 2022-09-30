@@ -58,6 +58,17 @@ describe('InMemoryRepository Unit Tests', () => {
     expect(entities).toStrictEqual([entity]);
   });
 
+  it('should returns all entities using bulkInsert()', async () => {
+    const entity1 = new StubEntity({ name: 'name value 1', price: 5 });
+    const entity2 = new StubEntity({ name: 'name value 2', price: 10 });
+    const entity3 = new StubEntity({ name: 'name value 3', price: 15 });
+    await repository.bulkInsert([entity1, entity2, entity3]);
+
+    const entities = await repository.findAll();
+
+    expect(entities).toStrictEqual([entity1, entity2, entity3]);
+  });
+
   it('should throws error on update when entity not found', () => {
     const entity = new StubEntity({ name: 'name value', price: 5 });
     expect(repository.update(entity)).rejects.toThrow(
