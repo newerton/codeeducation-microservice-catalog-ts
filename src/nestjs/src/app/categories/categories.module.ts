@@ -5,7 +5,6 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { CategoriesController } from './categories.controller';
 import { CategoriesService } from './categories.service';
 import { CATEGORY_PROVIDERS } from './providers/category.provider';
-
 @Module({
   imports: [SequelizeModule.forFeature([CategorySequelize.CategoryModel])],
   controllers: [CategoriesController],

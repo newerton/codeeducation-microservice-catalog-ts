@@ -17,7 +17,6 @@ import {
   Post,
   Put,
   Query,
-  ValidationPipe,
 } from '@nestjs/common';
 
 import { CreateCategoryDto } from './dto/create-category.dto';

@@ -1,6 +1,3 @@
-import { EntityValidationErrorFilter } from '@common/filters/entity-validation.filter';
-import { NotFoundErrorFilter } from '@common/filters/not-found-error.filter';
-import { PaginationInterceptor } from '@common/interceptors/pagination/pagination.interceptor';
 import {
   ClassSerializerInterceptor,
   HttpStatus,
@@ -8,6 +5,10 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+
+import { EntityValidationErrorFilter } from '@common/filters/entity-validation.filter';
+import { NotFoundErrorFilter } from '@common/filters/not-found-error.filter';
+import { PaginationInterceptor } from '@common/interceptors/pagination/pagination.interceptor';
 
 export function applyGlobalConfig(app: INestApplication) {
   app.useGlobalFilters(

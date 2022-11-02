@@ -4,9 +4,6 @@ import {
 } from '@fc/micro-videos/category/application';
 import { Inject, Injectable } from '@nestjs/common';
 
-import { UpdateCategoryDto } from './dto/update-category.dto';
-
-//organizar a configuração e construção de serviços
 @Injectable()
 export class CategoriesService {
   @Inject(CreateCategoryUseCase.UseCase)
@@ -23,15 +20,15 @@ export class CategoriesService {
     return this.listUseCase.execute(input);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
-  }
+  // findOne(id: number) {
+  //   return `This action returns a #${id} category`;
+  // }
 
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
-  }
+  // update(id: number, updateCategoryDto: UpdateCategoryDto) {
+  //   return `This action updates a #${id} category`;
+  // }
 
-  remove(id: number) {
-    return `This action removes a #${id} category`;
-  }
+  // remove(id: number) {
+  //   return `This action removes a #${id} category`;
+  // }
 }

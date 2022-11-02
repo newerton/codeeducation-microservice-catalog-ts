@@ -1,4 +1,5 @@
 import { of } from 'rxjs';
+
 import { PaginationInterceptor } from './pagination.interceptor';
 
 describe('PaginationInterceptor Unit Test', () => {

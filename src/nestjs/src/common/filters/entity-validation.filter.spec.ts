@@ -1,9 +1,9 @@
-import { EntityValidationErrorFilter } from '@common/filters/entity-validation.filter';
 import { EntityValidationError } from '@fc/micro-videos/@seedwork/domain';
 import { Controller, Get, HttpStatus, INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import request from 'supertest';
 
+import { EntityValidationErrorFilter } from '@common/filters/entity-validation.filter';
 
 @Controller('stub')
 class StubController {
@@ -29,10 +29,13 @@ describe('EntityValidationErrorFilter Unit Test', () => {
   });
 
   it('should catch a EntityValidationError', () => {
-    return request(app.getHttpServer()).get('/stub').expect(HttpStatus.UNPROCESSABLE_ENTITY).expect({
-      statusCode: HttpStatus.UNPROCESSABLE_ENTITY,
-      error: 'Unprocessable Entity',
-      message: ['field1 is required', 'field2 is required'],
-    })
-  })
+    return request(app.getHttpServer())
+      .get('/stub')
+      .expect(HttpStatus.UNPROCESSABLE_ENTITY)
+      .expect({
+        statusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        error: 'Unprocessable Entity',
+        message: ['field1 is required', 'field2 is required'],
+      });
+  });
 });

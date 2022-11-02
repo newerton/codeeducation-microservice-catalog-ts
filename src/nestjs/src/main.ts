@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+
 import { applyGlobalConfig } from 'global-config';
 
 import { AppModule } from './app.module';

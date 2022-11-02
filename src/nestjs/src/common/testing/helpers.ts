@@ -1,8 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
+import { getConnectionToken } from '@nestjs/sequelize';
+import { Test, TestingModule } from '@nestjs/testing';
+
 import { AppModule } from '../../app.module';
 import { applyGlobalConfig } from '../../global-config';
-import { getConnectionToken } from '@nestjs/sequelize';
 
 export function startApp({
   beforeInit,
