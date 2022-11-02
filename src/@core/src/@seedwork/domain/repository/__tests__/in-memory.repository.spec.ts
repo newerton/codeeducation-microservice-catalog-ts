@@ -1,4 +1,4 @@
-import { Entity } from '#seedwork/domain/entity';
+import Entity from '#seedwork/domain/entity/entity';
 import { NotFoundError } from '#seedwork/domain/errors';
 import { UniqueEntityId } from '#seedwork/domain/value-objects';
 

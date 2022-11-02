@@ -71,14 +71,4 @@ describe('CategoryModel Unit Tests', () => {
     const category = await CategoryModel.create(arrange);
     expect(category.toJSON()).toStrictEqual(arrange);
   });
-
-  //primeiro criou categorias
-  //segundo criou categorias
-
-  // sqlite - memory
-
-  //iniciar a conexão
-  //criar tabelas
-  //testes
-  //desconecte banco
 });

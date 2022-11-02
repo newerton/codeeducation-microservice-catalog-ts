@@ -84,7 +84,7 @@ export class CategoryFakeBuilder<TBuild = any> {
   }
 
   withInvalidIsActiveNotABoolean(value?: any) {
-    this._description = value ?? 'fake boolean';
+    this._is_active = value ?? 'fake boolean';
     return this;
   }
 

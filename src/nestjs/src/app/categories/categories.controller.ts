@@ -13,9 +13,11 @@ import {
   HttpCode,
   Inject,
   Param,
+  ParseUUIDPipe,
   Post,
   Put,
   Query,
+  ValidationPipe,
 } from '@nestjs/common';
 
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -43,7 +45,9 @@ export class CategoriesController {
   @Inject(ListCategoriesUseCase.UseCase)
   private listUseCase: ListCategoriesUseCase.UseCase;
 
-  //Arquitetura Hexagonal - Ports
+  static toResponse(output) {
+    return new CategoryPresenter(output);
+  }
 
   @Post()
   async create(@Body() createCategoryDto: CreateCategoryDto) {
@@ -58,26 +62,30 @@ export class CategoriesController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(
+    @Param('id', new ParseUUIDPipe({ errorHttpStatusCode: 422 })) id: string,
+  ) {
     const output = await this.getUseCase.execute({ id });
-    return new CategoryPresenter(output);
+    return CategoriesController.toResponse(output);
   }
 
-  @Put(':id') //PUT vs PATCH
+  @Put(':id')
   async update(
-    @Param('id') id: string,
+    @Param('id', new ParseUUIDPipe({ errorHttpStatusCode: 422 })) id: string,
     @Body() updateCategoryDto: UpdateCategoryDto,
   ) {
     const output = await this.updateUseCase.execute({
       id,
       ...updateCategoryDto,
     });
-    return new CategoryPresenter(output);
+    return CategoriesController.toResponse(output);
   }
 
   @HttpCode(204)
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(
+    @Param('id', new ParseUUIDPipe({ errorHttpStatusCode: 422 })) id: string,
+  ) {
     return this.deleteUseCase.execute({ id });
   }
 }
