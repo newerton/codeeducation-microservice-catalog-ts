@@ -258,7 +258,8 @@ export class UpdateCategoryFixture {
 
   static forEntityValidationError() {
     // remove an update case that never happens
-    const { ...otherKeys } = CategoryFixture.forEntityValidationError();
+    const { IS_ACTIVE_NOT_A_BOOLEAN, ...otherKeys } =
+      CategoryFixture.forEntityValidationError();
     return otherKeys;
   }
 }

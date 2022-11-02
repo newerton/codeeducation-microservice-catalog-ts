@@ -6,5 +6,7 @@
     "conventionalCommits.scopes": [
         "devcontainer.json",
         "settings.json"
-    ]
+    ],
+    "jestrunner.codeLensSelector": "**/*.{test,spec,int-spec,ispec,e2e-spec}.{js,jsx,ts,tsx}",
+    "jest.jestCommandLine": "npm run test -- --runInBand --detectOpenHandles --forceExit"
 }
