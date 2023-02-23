@@ -24,7 +24,7 @@
     "class-validator": "^0.14.0",
     "dotenv": "^16.0.2",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.28.0",
+    "sequelize": "^6.28.2",
     "sequelize-typescript": "^2.1.5",
     "sqlite3": "^5.1.4",
     "uuid": "^9.0.0"
