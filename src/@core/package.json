@@ -23,7 +23,7 @@
     "chance": "^1.1.9",
     "class-validator": "^0.14.0",
     "dotenv": "^16.0.2",
-    "mysql2": "^2.3.3",
+    "mysql2": "^3.9.4",
     "sequelize": "^6.29.0",
     "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.5",
