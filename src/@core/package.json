@@ -51,11 +51,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
-  "overrides": {
-    "sqlite3": {
-      "tar-fs": ">=2.1.4"
-    }
-  },
   "imports": {
     "#seedwork/application": "./dist/@seedwork/application/index.js",
     "#seedwork/domain": "./dist/@seedwork/domain/index.js",

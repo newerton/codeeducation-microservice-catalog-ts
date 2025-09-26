@@ -16,6 +16,9 @@
     "test": "jest",
     "test:cov": "jest --coverage"
   },
+  "overrides": {
+    "tar-fs": ">=3.0.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codeedu/micro-admin-videos-typescript.git"
