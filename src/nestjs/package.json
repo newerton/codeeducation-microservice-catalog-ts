@@ -23,7 +23,7 @@
   "dependencies": {
     "@nestjs/common": "^11.1.6",
     "@nestjs/config": "^4.0.2",
-    "@nestjs/core": "^11.1.6",
+    "@nestjs/core": "^11.1.18",
     "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/platform-express": "^11.1.6",
     "@nestjs/sequelize": "^11.0.0",
