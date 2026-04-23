@@ -27,7 +27,7 @@
     "sequelize": "^6.37.8",
     "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.7",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@swc/core": "^1.13.19",
