@@ -1,1 +1,1 @@
-process.env.NODE_ENV = 'e2e';
+process.env.NODE_ENV = "e2e";

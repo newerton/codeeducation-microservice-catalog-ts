@@ -1,35 +1,35 @@
-import { Sequelize, SequelizeOptions } from 'sequelize-typescript';
+import { Sequelize, type SequelizeOptions } from "sequelize-typescript";
 
-import { configTest } from '#seedwork/infra/config/index';
+import { configTest } from "#seedwork/infra/config/index";
 
 const sequelizeOptions: SequelizeOptions = {
-  dialect: configTest.db.vendor,
-  host: configTest.db.host,
-  logging: configTest.db.logging,
+	dialect: configTest.db.vendor,
+	host: configTest.db.host,
+	logging: configTest.db.logging,
 };
 
 export function setupSequelize(options: SequelizeOptions = {}) {
-  let _sequelize: Sequelize;
+	let _sequelize: Sequelize;
 
-  beforeAll(
-    () =>
-      (_sequelize = new Sequelize({
-        ...sequelizeOptions,
-        ...options,
-      })),
-  );
+	beforeAll(
+		() =>
+			(_sequelize = new Sequelize({
+				...sequelizeOptions,
+				...options,
+			})),
+	);
 
-  beforeEach(async () => {
-    await _sequelize.sync({ force: true });
-  });
+	beforeEach(async () => {
+		await _sequelize.sync({ force: true });
+	});
 
-  afterAll(async () => {
-    await _sequelize.close();
-  });
+	afterAll(async () => {
+		await _sequelize.close();
+	});
 
-  return {
-    get sequelize() {
-      return _sequelize;
-    },
-  };
+	return {
+		get sequelize() {
+			return _sequelize;
+		},
+	};
 }

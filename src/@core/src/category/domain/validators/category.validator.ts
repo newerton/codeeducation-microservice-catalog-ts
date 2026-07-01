@@ -1,52 +1,52 @@
 import {
-  IsBoolean,
-  IsDate,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  MaxLength,
-} from 'class-validator';
+	IsBoolean,
+	IsDate,
+	IsNotEmpty,
+	IsOptional,
+	IsString,
+	MaxLength,
+} from "class-validator";
 
-import { ClassValidatorFields } from '#seedwork/domain';
+import { ClassValidatorFields } from "#seedwork/domain";
 
-import { CategoryProperties } from '../entities';
+import type { CategoryProperties } from "../entities";
 
 export class CategoryRules {
-  @MaxLength(255)
-  @IsString()
-  @IsNotEmpty()
-  name: string;
+	@MaxLength(255)
+	@IsString()
+	@IsNotEmpty()
+	name: string;
 
-  @IsString()
-  @IsOptional()
-  description: string;
+	@IsString()
+	@IsOptional()
+	description: string;
 
-  @IsOptional()
-  @IsBoolean()
-  is_active: boolean;
+	@IsOptional()
+	@IsBoolean()
+	is_active: boolean;
 
-  @IsDate()
-  @IsOptional()
-  created_at: Date;
+	@IsDate()
+	@IsOptional()
+	created_at: Date;
 
-  constructor({
-    name,
-    description,
-    is_active,
-    created_at,
-  }: CategoryProperties) {
-    Object.assign(this, { name, description, is_active, created_at });
-  }
+	constructor({
+		name,
+		description,
+		is_active,
+		created_at,
+	}: CategoryProperties) {
+		Object.assign(this, { name, description, is_active, created_at });
+	}
 }
 
 export class CategoryValidator extends ClassValidatorFields<CategoryRules> {
-  validate(data: CategoryProperties): boolean {
-    return super.validate(new CategoryRules(data ?? ({} as any)));
-  }
+	validate(data: CategoryProperties): boolean {
+		return super.validate(new CategoryRules(data ?? ({} as any)));
+	}
 }
 
 export class CategoryValidatorFactory {
-  static create() {
-    return new CategoryValidator();
-  }
+	static create() {
+		return new CategoryValidator();
+	}
 }

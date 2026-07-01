@@ -1,94 +1,94 @@
 {
-  "name": "@fc/micro-videos",
-  "version": "1.0.0",
-  "description": "admin do catalogo de videos",
-  "main": "index.js",
-  "keywords": [],
-  "author": "Newerton Vargas de Araujo",
-  "license": "MIT",
-  "scripts": {
-    "ts-node": "ts-node",
-    "tsc": "tsc",
-    "tsc:check": "npm run tsc -- --noEmit",
-    "lint": "eslint \"src/**/*.ts\" --fix",
-    "build": "tsc -b ./tsconfig.json",
-    "build:w": "tsc -b ./tsconfig.json -w",
-    "clean:tsc": "rm tsconfig.tsbuildinfo",
-    "test": "jest",
-    "test:cov": "npm run test -- --coverage",
-    "cti": "cti",
-    "cti:make": "sh ./cti.sh"
-  },
-  "dependencies": {
-    "chance": "^1.1.13",
-    "class-validator": "^0.14.2",
-    "dotenv": "^17.2.2",
-    "mysql2": "^3.15.1",
-    "sequelize": "^6.37.8",
-    "sequelize-typescript": "^2.1.6",
-    "sqlite3": "^6.0.1",
-    "uuid": "^14.0.0"
-  },
-  "devDependencies": {
-    "@swc/core": "^1.13.19",
-    "@swc/jest": "^0.2.39",
-    "@types/chance": "^1.1.7",
-    "@types/jest": "^30.0.0",
-    "@types/lodash": "^4.17.20",
-    "@types/node": "^24.5.2",
-    "@types/uuid": "^11.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.44.1",
-    "@typescript-eslint/parser": "^8.44.1",
-    "create-ts-index": "^1.14.0",
-    "eslint": "^9.36.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.4",
-    "jest": "^30.1.3",
-    "prettier": "^3.6.2",
-    "regenerator-runtime": "^0.14.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
-  },
-  "imports": {
-    "#seedwork/application": "./dist/@seedwork/application/index.js",
-    "#seedwork/domain": "./dist/@seedwork/domain/index.js",
-    "#seedwork/infra": "./dist/@seedwork/infra/index.js",
-    "#seedwork/*": "./dist/@seedwork/*.js",
-    "#category/applicatioon": "./dist/category/applicatioon/index.js",
-    "#category/domain": "./dist/category/domain/index.js",
-    "#category/infra": "./dist/category/infra/index.js",
-    "#category/*": "./dist/category/*.js"
-  },
-  "exports": {
-    "./@seedwork/application": "./dist/@seedwork/application/index.js",
-    "./@seedwork/domain": "./dist/@seedwork/domain/index.js",
-    "./@seedwork/infra": "./dist/@seedwork/infra/index.js",
-    "./category/application": "./dist/category/application/index.js",
-    "./category/domain": "./dist/category/domain/index.js",
-    "./category/infra": "./dist/category/infra/index.js"
-  },
-  "typesVersions": {
-    ">=4.0": {
-      "@seedwork/application": [
-        "./dist/@seedwork/application/index.d.ts"
-      ],
-      "@seedwork/domain": [
-        "./dist/@seedwork/domain/index.d.ts"
-      ],
-      "@seedwork/infra": [
-        "./dist/@seedwork/infra/index.d.ts"
-      ],
-      "category/application": [
-        "./dist/category/application/index.d.ts"
-      ],
-      "category/domain": [
-        "./dist/category/domain/index.d.ts"
-      ],
-      "category/infra": [
-        "./dist/category/infra/index.d.ts"
-      ]
-    }
-  }
+	"name": "@fc/micro-videos",
+	"version": "1.0.0",
+	"description": "admin do catalogo de videos",
+	"main": "index.js",
+	"keywords": [],
+	"author": "Newerton Vargas de Araujo",
+	"license": "MIT",
+	"scripts": {
+		"ts-node": "ts-node",
+		"tsc": "tsc",
+		"tsc:check": "npm run tsc -- --noEmit",
+		"lint": "eslint \"src/**/*.ts\" --fix",
+		"build": "tsc -b ./tsconfig.json",
+		"build:w": "tsc -b ./tsconfig.json -w",
+		"clean:tsc": "rm tsconfig.tsbuildinfo",
+		"test": "jest",
+		"test:cov": "npm run test -- --coverage",
+		"cti": "cti",
+		"cti:make": "sh ./cti.sh"
+	},
+	"dependencies": {
+		"chance": "^1.1.13",
+		"class-validator": "^0.14.2",
+		"dotenv": "^17.2.2",
+		"mysql2": "^3.15.1",
+		"sequelize": "^6.37.8",
+		"sequelize-typescript": "^2.1.6",
+		"sqlite3": "^6.0.1",
+		"uuid": "^14.0.0"
+	},
+	"devDependencies": {
+		"@swc/core": "^1.13.19",
+		"@swc/jest": "^0.2.39",
+		"@types/chance": "^1.1.7",
+		"@types/jest": "^30.0.0",
+		"@types/lodash": "^4.17.20",
+		"@types/node": "^24.5.2",
+		"@types/uuid": "^11.0.0",
+		"@typescript-eslint/eslint-plugin": "^8.44.1",
+		"@typescript-eslint/parser": "^8.44.1",
+		"create-ts-index": "^1.14.0",
+		"eslint": "^9.36.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-import-resolver-typescript": "^4.4.4",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-prettier": "^5.5.4",
+		"jest": "^30.1.3",
+		"prettier": "^3.6.2",
+		"regenerator-runtime": "^0.14.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.2"
+	},
+	"imports": {
+		"#seedwork/application": "./dist/@seedwork/application/index.js",
+		"#seedwork/domain": "./dist/@seedwork/domain/index.js",
+		"#seedwork/infra": "./dist/@seedwork/infra/index.js",
+		"#seedwork/*": "./dist/@seedwork/*.js",
+		"#category/applicatioon": "./dist/category/applicatioon/index.js",
+		"#category/domain": "./dist/category/domain/index.js",
+		"#category/infra": "./dist/category/infra/index.js",
+		"#category/*": "./dist/category/*.js"
+	},
+	"exports": {
+		"./@seedwork/application": "./dist/@seedwork/application/index.js",
+		"./@seedwork/domain": "./dist/@seedwork/domain/index.js",
+		"./@seedwork/infra": "./dist/@seedwork/infra/index.js",
+		"./category/application": "./dist/category/application/index.js",
+		"./category/domain": "./dist/category/domain/index.js",
+		"./category/infra": "./dist/category/infra/index.js"
+	},
+	"typesVersions": {
+		">=4.0": {
+			"@seedwork/application": [
+				"./dist/@seedwork/application/index.d.ts"
+			],
+			"@seedwork/domain": [
+				"./dist/@seedwork/domain/index.d.ts"
+			],
+			"@seedwork/infra": [
+				"./dist/@seedwork/infra/index.d.ts"
+			],
+			"category/application": [
+				"./dist/category/application/index.d.ts"
+			],
+			"category/domain": [
+				"./dist/category/domain/index.d.ts"
+			],
+			"category/infra": [
+				"./dist/category/infra/index.d.ts"
+			]
+		}
+	}
 }

@@ -1,69 +1,68 @@
-import { join } from 'path';
-
-import { DynamicModule, Module } from '@nestjs/common';
+import { join } from "node:path";
+import { type DynamicModule, Module } from "@nestjs/common";
 import {
-  ConfigModuleOptions,
-  ConfigModule as NestConfigModule,
-} from '@nestjs/config';
-import * as Joi from 'joi';
+	type ConfigModuleOptions,
+	ConfigModule as NestConfigModule,
+} from "@nestjs/config";
+import * as Joi from "joi";
 
 type DB_SCHEMA_TYPE = {
-  DB_VENDOR: 'mysql' | 'sqlite';
-  DB_HOST: string;
-  DB_DATABASE: string;
-  DB_USERNAME: string;
-  DB_PASSWORD: string;
-  DB_PORT: number;
-  DB_LOGGING: boolean;
-  DB_AUTO_LOAD_MODELS: boolean;
+	DB_VENDOR: "mysql" | "sqlite";
+	DB_HOST: string;
+	DB_DATABASE: string;
+	DB_USERNAME: string;
+	DB_PASSWORD: string;
+	DB_PORT: number;
+	DB_LOGGING: boolean;
+	DB_AUTO_LOAD_MODELS: boolean;
 };
 
 export const CONFIG_DB_SCHEMA = {
-  DB_VENDOR: Joi.string().required().valid('mysql', 'sqlite'),
-  DB_HOST: Joi.string().required(),
-  DB_DATABASE: Joi.string().when('DB_VENDOR', {
-    is: 'mysql',
-    then: Joi.required(),
-  }),
-  DB_USERNAME: Joi.string().when('DB_VENDOR', {
-    is: 'mysql',
-    then: Joi.required(),
-  }),
-  DB_PASSWORD: Joi.string().when('DB_VENDOR', {
-    is: 'mysql',
-    then: Joi.required(),
-  }),
-  DB_PORT: Joi.number().integer().when('DB_VENDOR', {
-    is: 'mysql',
-    then: Joi.required(),
-  }),
-  DB_LOGGING: Joi.boolean().required(),
-  DB_AUTO_LOAD_MODELS: Joi.boolean().required(),
+	DB_VENDOR: Joi.string().required().valid("mysql", "sqlite"),
+	DB_HOST: Joi.string().required(),
+	DB_DATABASE: Joi.string().when("DB_VENDOR", {
+		is: "mysql",
+		then: Joi.required(),
+	}),
+	DB_USERNAME: Joi.string().when("DB_VENDOR", {
+		is: "mysql",
+		then: Joi.required(),
+	}),
+	DB_PASSWORD: Joi.string().when("DB_VENDOR", {
+		is: "mysql",
+		then: Joi.required(),
+	}),
+	DB_PORT: Joi.number().integer().when("DB_VENDOR", {
+		is: "mysql",
+		then: Joi.required(),
+	}),
+	DB_LOGGING: Joi.boolean().required(),
+	DB_AUTO_LOAD_MODELS: Joi.boolean().required(),
 };
 
 export type CONFIG_SCHEMA_TYPE = DB_SCHEMA_TYPE;
 
 @Module({})
 export class ConfigModule extends NestConfigModule {
-  static forRoot(options: ConfigModuleOptions = {}): DynamicModule {
-    const { envFilePath, ...otherOptions } = options;
-    return super.forRoot({
-      isGlobal: true,
-      envFilePath: [
-        ...(envFilePath
-          ? Array.isArray(envFilePath)
-            ? envFilePath
-            : [envFilePath]
-          : ''),
-        process.env.NODE_ENV
-          ? join(__dirname, `../envs/.env.${process.env.NODE_ENV}`)
-          : '',
-        join(__dirname, '../envs/.env'),
-      ],
-      validationSchema: Joi.object({
-        ...CONFIG_DB_SCHEMA,
-      }),
-      ...otherOptions,
-    });
-  }
+	static forRoot(options: ConfigModuleOptions = {}): DynamicModule {
+		const { envFilePath, ...otherOptions } = options;
+		return NestConfigModule.forRoot({
+			isGlobal: true,
+			envFilePath: [
+				...(envFilePath
+					? Array.isArray(envFilePath)
+						? envFilePath
+						: [envFilePath]
+					: ""),
+				process.env.NODE_ENV
+					? join(__dirname, `../envs/.env.${process.env.NODE_ENV}`)
+					: "",
+				join(__dirname, "../envs/.env"),
+			],
+			validationSchema: Joi.object({
+				...CONFIG_DB_SCHEMA,
+			}),
+			...otherOptions,
+		});
+	}
 }

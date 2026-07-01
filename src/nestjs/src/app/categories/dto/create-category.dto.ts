@@ -1,16 +1,16 @@
-import { CreateCategoryUseCase } from '@fc/micro-videos/category/application';
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import type { CreateCategoryUseCase } from "@fc/micro-videos/category/application";
+import { IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 export class CreateCategoryDto implements CreateCategoryUseCase.Input {
-  @IsString()
-  @IsNotEmpty()
-  name: string;
+	@IsString()
+	@IsNotEmpty()
+	name: string;
 
-  @IsString()
-  @IsOptional()
-  description?: string;
+	@IsString()
+	@IsOptional()
+	description?: string;
 
-  @IsBoolean()
-  @IsOptional()
-  is_active?: boolean;
+	@IsBoolean()
+	@IsOptional()
+	is_active?: boolean;
 }

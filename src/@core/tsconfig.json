@@ -1,18 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "outDir": "./dist",
-    "paths": {
-      "#seedwork/*": [
-        "./@seedwork/*"
-      ],
-      "#category/*": [
-        "./category/*"
-      ]
-    },
-  },
-  "include": [
-    "./src/"
-  ]
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"outDir": "./dist",
+		"paths": {
+			"#seedwork/*": ["./@seedwork/*"],
+			"#category/*": ["./category/*"]
+		}
+	},
+	"include": ["./src/"]
 }
