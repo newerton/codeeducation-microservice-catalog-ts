@@ -22,21 +22,21 @@ describe("CategoriesController (e2e)", () => {
 				await categoryRepo.bulkInsert(Object.values(entitiesMap));
 			});
 
-			test.each(arrange)("when query params is $data", async ({
-				data,
-				expected,
-			}) => {
-				const queryParams = new URLSearchParams(data as any).toString();
-				return request(nestApp.app.getHttpServer())
-					.get(`/categories/?${queryParams}`)
-					.expect(200)
-					.expect({
-						data: expected.entities.map((e) =>
-							instanceToPlain(CategoriesController.toResponse(e)),
-						),
-						meta: expected.meta,
-					});
-			});
+			test.each(arrange)(
+				"when query params is $data",
+				async ({ data, expected }) => {
+					const queryParams = new URLSearchParams(data as any).toString();
+					return request(nestApp.app.getHttpServer())
+						.get(`/categories/?${queryParams}`)
+						.expect(200)
+						.expect({
+							data: expected.entities.map((e) =>
+								instanceToPlain(CategoriesController.toResponse(e)),
+							),
+							meta: expected.meta,
+						});
+				},
+			);
 		});
 
 		describe("should return categories using paginate, filter & sort", () => {
@@ -52,21 +52,21 @@ describe("CategoriesController (e2e)", () => {
 				await categoryRepo.bulkInsert(Object.values(entitiesMap));
 			});
 
-			test.each(arrange)("when query params is $data", async ({
-				data,
-				expected,
-			}) => {
-				const queryParams = new URLSearchParams(data as any).toString();
-				return request(nestApp.app.getHttpServer())
-					.get(`/categories/?${queryParams}`)
-					.expect(200)
-					.expect({
-						data: expected.entities.map((e) =>
-							instanceToPlain(CategoriesController.toResponse(e)),
-						),
-						meta: expected.meta,
-					});
-			});
+			test.each(arrange)(
+				"when query params is $data",
+				async ({ data, expected }) => {
+					const queryParams = new URLSearchParams(data as any).toString();
+					return request(nestApp.app.getHttpServer())
+						.get(`/categories/?${queryParams}`)
+						.expect(200)
+						.expect({
+							data: expected.entities.map((e) =>
+								instanceToPlain(CategoriesController.toResponse(e)),
+							),
+							meta: expected.meta,
+						});
+				},
+			);
 		});
 	});
 });
